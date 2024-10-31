@@ -1,13 +1,17 @@
 from dotenv import load_dotenv
-from pprint import pprint
+from time import time
 from components.graph import app
-
+from loguru import logger
 load_dotenv()
 
-question1 = "Which produces better results, CAIN or DIFRINT?"
-inputs = {"question": question1}
-
-for output in app.stream(inputs, config={"configurable": {"thread_id": "2"}}):
-    for key, value in output.items():
-        pprint(f"Finished running: {key}:")
-pprint(value["generation"])
+if __name__ == "__main__":
+    start = time()
+    inputs = {"question": "What are some future directions for Deep Learning Video Stabilization?"}
+    config = {"configurable": {"thread_id": "2"}}
+    for event in app.stream(inputs, config):
+        for node,values in event.items():
+            continue
+    logger.info(f"Time Elapsed {time() - start}.")
+    #dict_keys(['question', 'generation', 'documents'])
+    logger.info(f"Final response: {values.get('generation')}")
+    

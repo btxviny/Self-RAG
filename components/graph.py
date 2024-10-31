@@ -12,6 +12,7 @@ from components.nodes import (
     generation_node,
     grade_answer_node
 )
+from loguru import logger
 load_dotenv()
 
 
@@ -20,12 +21,10 @@ def decide_to_generate(state):
     print("---ASSESS GRADED DOCUMENTS---")
 
     if state["web_search"]:
-        print(
-            "---DECISION: NOT ALL DOCUMENTS ARE NOT RELEVANT TO QUESTION, INCLUDE WEB SEARCH---"
-        )
+        logger.info("DECISION: Not all documents are relevant to the question, proceed with web search.")
         return "websearch"
     else:
-        print("---DECISION: GENERATE---")
+        logger.info("DECISION: All documents are relevant, proceed with answer generation.")
         return "generate"
 
 
