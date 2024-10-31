@@ -1,0 +1,2 @@
+pull docker image: docker pull chromadb/chroma
+run container: docker run -d -p 8000:8000 --name chroma-db-instance chromadb/chroma

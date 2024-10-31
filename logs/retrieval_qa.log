@@ -1,0 +1,217 @@
+2024-10-22T10:38:03.767233+0300 INFO Setting up Azure LLM model...
+2024-10-22T10:38:03.786563+0300 INFO Setting up vector store...
+2024-10-22T10:38:11.567019+0300 INFO Setting up retrieval chain...
+2024-10-22T10:38:12.207717+0300 INFO System is ready for user queries.
+2024-10-22T10:38:39.573273+0300 INFO Processing query: Which is the fastest method for video stabilization?
+2024-10-22T10:38:41.394914+0300 INFO Query processed in 1.82 seconds
+2024-10-22T10:38:41.395910+0300 INFO Answer: According to the context provided, Optical Image Stabilization (OIS) mechanisms are implied to be very effective and do not suffer from the long inference times that plague many deep learning video stabilization algorithms. OIS mechanisms, employed in many contemporary smartphones, make digital video stabilization seem redundant due to their remarkable performance. Therefore, OIS can be considered the fastest method for video stabilization as it operates in real-time, unlike deep learning methods that require significant post-processing time.
+2024-10-22T10:39:12.942602+0300 INFO Processing query: What gpu did the author use ?
+2024-10-22T10:39:13.619963+0300 INFO Query processed in 0.68 seconds
+2024-10-22T10:39:13.620977+0300 INFO Answer: The author used a GTX 970 graphics card.
+2024-10-22T10:39:54.616949+0300 INFO Processing query: Which dense optical flow estimation model is easier to use ?
+2024-10-22T10:39:55.668637+0300 INFO Query processed in 1.05 seconds
+2024-10-22T10:39:55.669651+0300 INFO Answer: The PWCNet [8] is noted to be easier to use in the provided context. It has shown better results and offers the advantage of faster inference speeds due to its deep learning-based architecture. However, it does require a custom correlation CUDA layer, which could pose some compatibility challenges.
+2024-10-22T10:42:57.472232+0300 INFO Processing query: Which is the best synthetic dataset generation method ?
+2024-10-22T10:42:59.135525+0300 INFO Query processed in 1.66 seconds
+2024-10-22T10:42:59.135525+0300 INFO Answer: The text does not specify which of the four techniques for unstable video generation is the best. It mentions that each method can be used to expand existing datasets and that a major advantage is including the exact transformations needed to stabilize the unstable videos. This enables simple and effective transformation learning algorithms. For a comprehensive implementation of all the methods, you can refer to the provided repository: [https://github.com/btxviny/Synthetic-Dataset-Generation-for-Video-Stabilization](https://github.com/btxviny/Synthetic-Dataset-Generation-for-Video-Stabilization).
+2024-10-22T10:45:28.086398+0300 INFO User terminated the session.
+2024-10-22T10:59:58.976916+0300 INFO Setting up Azure LLM model...
+2024-10-22T10:59:59.043411+0300 INFO Setting up vector store...
+2024-10-22T11:00:35.475773+0300 INFO Setting up Azure LLM model...
+2024-10-22T11:00:35.503786+0300 INFO Setting up vector store...
+2024-10-22T11:01:25.162947+0300 INFO Setting up retrieval chain...
+2024-10-22T11:01:26.100889+0300 INFO System is ready for user queries.
+2024-10-22T11:01:47.427757+0300 INFO Processing query: What is the fastest video stabilization method ?
+2024-10-22T11:01:48.854222+0300 INFO Query processed in 1.43 seconds
+2024-10-22T11:01:48.855220+0300 INFO Answer: The context does not specify which video stabilization method is the fastest. However, it does mention that frame interpolation techniques, while effective, have long inference times, making them suitable only for post-processing. It also hints at the effectiveness of Optical Image Stabilization (OIS) mechanisms, which are hardware-based solutions found in contemporary smartphones and may imply a faster real-time performance compared to computational methods.
+2024-10-22T11:02:31.693031+0300 INFO User terminated the session.
+2024-10-22T11:22:57.623018+0300 INFO Setting up Azure LLM model...
+2024-10-22T11:22:57.650908+0300 INFO Setting up vector store...
+2024-10-22T11:23:06.512468+0300 INFO Setting up retrieval chain...
+2024-10-22T11:23:07.194844+0300 INFO System is ready for user queries.
+2024-10-22T11:23:29.260587+0300 INFO Processing query: Are there any supervised datasets?
+2024-10-22T11:23:31.197555+0300 INFO Query processed in 1.94 seconds
+2024-10-22T11:23:31.198419+0300 INFO Answer: Yes, supervised datasets for video stabilization exist, although their availability is limited. These datasets typically consist of stable/unstable video pairs. Two examples of such datasets are mentioned in the text: one captured using a setup comprising two GoPro Hero 4 Black cameras laid horizontally next to one another, with one mounted on a handheld stabilizer and the other left to move freely, and another using a similar hardware configuration with different cameras. These setups create pairs of stable and unstable video sequences, facilitating supervised learning for video stabilization tasks.
+2024-10-22T11:23:37.078505+0300 INFO User terminated the session.
+2024-10-22T11:37:35.335301+0300 INFO Setting up Azure LLM model...
+2024-10-22T11:37:35.364159+0300 INFO Setting up vector store...
+2024-10-22T11:37:46.094582+0300 INFO Setting up retrieval chain...
+2024-10-22T11:37:46.856423+0300 INFO System is ready for user queries.
+2024-10-22T11:38:12.643821+0300 INFO Processing query: What advantages does Deep Learning Video Stabilization offer over Digital Video Stabilization ?
+2024-10-22T11:38:15.391901+0300 INFO Query processed in 2.75 seconds
+2024-10-22T11:38:15.391901+0300 INFO Answer: Deep Learning Video Stabilization offers several advantages over traditional Digital Video Stabilization methods:
+
+1. **Generalization Across Varied Scenes and Motions:** Deep learning methods aim to generalize well on a variety of video scenes and camera motions, as opposed to traditional methods that optimize for specific video inputs.
+
+2. **Enhanced Stability:** By leveraging deep learning techniques, it is possible to develop advanced models that provide more stable and visually pleasing results, even in challenging scenarios.
+
+3. **Handling Complex Cases:** Deep learning approaches have the potential to better handle complex scenes involving fast and intricate motion, occlusions, and rapid changes in perspective, which traditional methods may struggle with.
+
+4. **Reducing Artifacts:** Deep learning models can be trained to minimize the introduction of artifacts such as unnatural warping or distortion, thereby improving the visual quality of the stabilized video.
+
+Despite these advantages, the thesis notes that deep learning methods still need further development to consistently outperform traditional methods across all types of video scenes and camera motions while maintaining good inference speeds.
+2024-10-22T11:38:52.156816+0300 INFO User terminated the session.
+2024-10-22T11:38:59.364623+0300 INFO Setting up Azure LLM model...
+2024-10-22T11:38:59.400082+0300 INFO Setting up vector store...
+2024-10-22T11:39:11.493181+0300 INFO Setting up retrieval chain...
+2024-10-22T11:39:12.140282+0300 INFO System is ready for user queries.
+2024-10-22T11:40:20.104196+0300 INFO Processing query: What advantages doe Deep Learning Video Stabilization offer?
+2024-10-22T11:40:23.959871+0300 INFO Query processed in 3.85 seconds
+2024-10-22T11:40:23.959871+0300 INFO Answer: Deep learning video stabilization offers several advantages over traditional methods:
+
+1. **Generalization Across Various Scenarios**: Deep learning methods aim to generalize well across a variety of video scenes and camera motions, making them versatile for different types of video content.
+
+2. **Advanced Motion Estimation and Compensation**: By leveraging deep learning techniques, these methods can potentially provide more accurate motion estimation and compensation, handling complex scenes with dynamic movement and depth variations more effectively.
+
+3. **Improvement Over Traditional Algorithms**: Although the thesis found that deep learning methods, excluding deep frame interpolation, do not always outperform traditional approaches in stability scores, they still offer improvements in other aspects like handling complex scenes and reducing artifacts.
+
+4. **Continuous Innovation**: The field of deep learning is rapidly evolving, and ongoing research continually pushes the boundaries to enhance the efficacy and efficiency of digital video stabilization.
+
+Overall, deep learning approaches provide a promising direction for achieving stable and visually pleasing video results, particularly in challenging scenarios.
+2024-10-22T11:40:44.422904+0300 INFO User terminated the session.
+2024-10-22T17:12:02.781455+0300 INFO Setting up Azure LLM model...
+2024-10-22T17:12:02.846002+0300 INFO Setting up vector store...
+2024-10-22T17:12:18.511172+0300 INFO Setting up retrieval chain...
+2024-10-22T17:12:19.258476+0300 INFO System is ready for user queries.
+2024-10-22T17:12:57.283351+0300 INFO Processing query: What gou did the author use?
+2024-10-22T17:12:58.749183+0300 INFO Query processed in 1.46 seconds
+2024-10-22T17:12:58.749183+0300 INFO Answer: The author used a GPU, but specific details about the make and model are not provided. The GPU memory limitations are mentioned as a constraint that influenced the decision not to include the image discriminator (λ4=0) in the work.
+2024-10-22T17:13:16.499295+0300 INFO Processing query: Which video stabilization method is  the fastest?
+2024-10-22T17:13:18.066694+0300 INFO Query processed in 1.57 seconds
+2024-10-22T17:13:18.066694+0300 INFO Answer: Optical Image Stabilization (OIS) is the fastest video stabilization method mentioned. Unlike digital video stabilization methods that involve computationally intensive processes like deep learning algorithms and frame interpolation, OIS utilizes a hardware-based approach with a sophisticated coil-based mechanism that dynamically adjusts the camera sensor's position in real-time based on readings from gyroscopes and accelerometers. This results in immediate stabilization without the need for post-processing.
+2024-10-22T17:15:22.145423+0300 INFO Processing query: What gpu did the author use?
+2024-10-22T17:15:22.897843+0300 INFO Query processed in 0.75 seconds
+2024-10-22T17:15:22.897937+0300 INFO Answer: The author did not specify the exact GPU used, only that there were GPU memory limitations.
+2024-10-22T17:15:28.672697+0300 INFO Processing query: What gpu did the author use?
+2024-10-22T17:15:29.633755+0300 INFO Query processed in 0.96 seconds
+2024-10-22T17:15:29.633755+0300 INFO Answer: The context does not specify the exact GPU model used by the author. It only mentions that the author faced GPU memory limitations.
+2024-10-22T17:17:41.824518+0300 INFO Processing query: Which model is better, DIFRINT or CAIN ?
+2024-10-22T17:17:46.297714+0300 INFO Query processed in 4.47 seconds
+2024-10-22T17:17:46.297714+0300 INFO Answer: Based on the provided context, CAIN is generally better than DIFRINT for video stabilization through frame interpolation. The key points highlighting CAIN's advantages are:
+
+1. **Stability and Distortion**: CAIN scores higher on the stability score, which is considered the most important metric, and shows almost no distortion as opposed to DIFRINT.
+2. **Inference Time**: CAIN requires fewer iterations (3 iterations) compared to DIFRINT (5 iterations) to stabilize a video, resulting in a faster inference time of 4 minutes compared to DIFRINT’s 6 minutes for a 40-second video with spatial dimensions 360 × 640.
+3. **Innovative Techniques**: CAIN uses PixelShuffle and channel attention, which help in maintaining a large receptive field without loss of information and directing focus towards significant regions, respectively.
+4. **Visual Quality**: Visual comparisons indicate that CAIN produces clearer and sharper images with less distortion compared to DIFRINT.
+
+Therefore, CAIN is better in terms of stability, inference time, and overall visual quality of the stabilized videos.
+2024-10-22T19:31:43.729595+0300 INFO Setting up Azure LLM model...
+2024-10-22T19:31:43.749500+0300 INFO Setting up vector store...
+2024-10-22T19:31:52.106848+0300 INFO Setting up retrieval chain...
+2024-10-22T19:31:52.804068+0300 INFO System is ready for user queries.
+2024-10-22T19:32:10.695090+0300 INFO Processing query: What is the best method for better stabilization results?
+2024-10-22T19:32:12.578443+0300 INFO Query processed in 1.88 seconds
+2024-10-22T19:32:12.579444+0300 INFO Answer: To achieve better stabilization results, the document suggests leveraging deep learning techniques. Specifically, it mentions using frame interpolation techniques for video stabilization, which can produce very satisfactory results by mitigating high-frequency jerkiness. However, it is important to note that these techniques have limitations, such as long inference times and potential distortion artifacts around moving objects. Therefore, while deep learning approaches can bridge the gap between professional-grade stability and consumer-grade convenience, they should be carefully implemented to minimize artifacts and computational complexity.
+2024-10-22T19:32:52.196958+0300 INFO Processing query: which specific method would you suggest based on the document?
+2024-10-22T19:32:53.660754+0300 INFO Query processed in 1.46 seconds
+2024-10-22T19:32:53.661754+0300 INFO Answer: Based on the document, an empirical approach to setting the learning rate is suggested. This involves initially using a standard learning rate, such as 1e-3, and then iteratively decreasing it if the loss diverges during training until a stable reduction in the loss is observed. This approach provides a quicker and often effective way to set an appropriate learning rate, especially when extensive hyperparameter tuning might be impractical.
+2024-10-22T19:33:23.294714+0300 INFO User terminated the session.
+2024-10-22T19:33:32.616639+0300 INFO Setting up Azure LLM model...
+2024-10-22T19:33:32.652845+0300 INFO Setting up vector store...
+2024-10-22T19:33:47.568383+0300 INFO Setting up retrieval chain...
+2024-10-22T19:33:48.611447+0300 INFO System is ready for user queries.
+2024-10-22T19:33:55.952069+0300 INFO Processing query: Hello ther
+2024-10-22T19:33:56.796578+0300 INFO Query processed in 0.84 seconds
+2024-10-22T19:33:56.796578+0300 INFO Answer: Hello! How can I assist you today?
+2024-10-22T19:37:56.802324+0300 INFO User terminated the session.
+2024-10-30T11:58:26.189166+0200 INFO Setting up Azure LLM model...
+2024-10-30T11:58:26.211375+0200 INFO Setting up vector store...
+2024-10-30T11:58:35.265241+0200 INFO Setting up retrieval chain...
+2024-10-30T11:58:36.064608+0200 INFO System is ready for user queries.
+2024-10-30T11:58:48.364540+0200 INFO Processing query: What is the fastest method for video stabilization ?
+2024-10-30T11:58:49.185038+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:01:54.049110+0200 INFO User terminated the session.
+2024-10-30T12:02:02.642622+0200 INFO Setting up Azure LLM model...
+2024-10-30T12:02:02.663757+0200 INFO Setting up vector store...
+2024-10-30T12:02:12.997452+0200 INFO Setting up retrieval chain...
+2024-10-30T12:02:13.710803+0200 INFO System is ready for user queries.
+2024-10-30T12:02:19.065624+0200 INFO Processing query: hello there
+2024-10-30T12:02:19.909090+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:02:32.815514+0200 INFO Setting up Azure LLM model...
+2024-10-30T12:02:32.831616+0200 INFO Setting up vector store...
+2024-10-30T12:02:39.494859+0200 INFO Setting up retrieval chain...
+2024-10-30T12:02:40.104913+0200 INFO System is ready for user queries.
+2024-10-30T12:02:44.912310+0200 INFO Processing query: Hello there
+2024-10-30T12:02:45.472378+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:03:41.038297+0200 INFO Setting up LLM model...
+2024-10-30T12:03:41.055185+0200 INFO Setting up vector store...
+2024-10-30T12:03:48.250474+0200 INFO Setting up retrieval chain...
+2024-10-30T12:03:48.917851+0200 INFO System is ready for user queries.
+2024-10-30T12:03:51.417273+0200 INFO Processing query: hello
+2024-10-30T12:03:52.073577+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:04:32.537780+0200 INFO User terminated the session.
+2024-10-30T12:04:37.248370+0200 INFO Setting up LLM model...
+2024-10-30T12:04:37.271521+0200 INFO Setting up vector store...
+2024-10-30T12:04:44.191867+0200 INFO Setting up retrieval chain...
+2024-10-30T12:04:44.868201+0200 INFO System is ready for user queries.
+2024-10-30T12:04:46.510890+0200 INFO Processing query: asdas
+2024-10-30T12:04:47.022931+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:06:25.444094+0200 INFO User terminated the session.
+2024-10-30T12:06:42.058084+0200 INFO Setting up LLM model...
+2024-10-30T12:06:42.078307+0200 INFO Setting up vector store...
+2024-10-30T12:06:49.205427+0200 INFO Setting up retrieval chain...
+2024-10-30T12:06:49.896273+0200 INFO System is ready for user queries.
+2024-10-30T12:06:53.251011+0200 INFO Processing query: hello
+2024-10-30T12:06:53.903754+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:08:29.407271+0200 INFO Setting up LLM model...
+2024-10-30T12:08:29.560656+0200 INFO Setting up vector store...
+2024-10-30T12:08:40.810053+0200 INFO Setting up retrieval chain...
+2024-10-30T12:08:41.448234+0200 INFO System is ready for user queries.
+2024-10-30T12:09:07.052185+0200 INFO Processing query: hello
+2024-10-30T12:09:07.573735+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:10:39.260480+0200 INFO Setting up LLM model...
+2024-10-30T12:10:39.290242+0200 INFO Setting up vector store...
+2024-10-30T12:10:46.154418+0200 INFO Setting up retrieval chain...
+2024-10-30T12:10:46.807716+0200 INFO System is ready for user queries.
+2024-10-30T12:10:49.528196+0200 INFO Processing query: asdas
+2024-10-30T12:10:50.065031+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:15:08.504139+0200 INFO User terminated the session.
+2024-10-30T12:15:18.288099+0200 INFO Setting up LLM model...
+2024-10-30T12:15:18.311772+0200 INFO Setting up vector store...
+2024-10-30T12:15:26.594497+0200 INFO Setting up retrieval chain...
+2024-10-30T12:15:27.242998+0200 INFO System is ready for user queries.
+2024-10-30T12:15:30.690112+0200 INFO Processing query: hello
+2024-10-30T12:15:31.207520+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:17:57.992529+0200 INFO User terminated the session.
+2024-10-30T12:18:08.100191+0200 INFO Setting up LLM model...
+2024-10-30T12:18:08.121681+0200 INFO Setting up vector store...
+2024-10-30T12:18:20.576252+0200 INFO Setting up retrieval chain...
+2024-10-30T12:18:21.318756+0200 INFO System is ready for user queries.
+2024-10-30T12:18:43.518612+0200 INFO Processing query:  hello
+2024-10-30T12:18:44.158562+0200 ERROR Error processing query: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+2024-10-30T12:21:35.191461+0200 INFO Setting up Azure LLM model...
+2024-10-30T12:21:35.214136+0200 INFO Setting up vector store...
+2024-10-30T12:21:42.757406+0200 INFO Setting up retrieval chain...
+2024-10-30T12:21:43.392836+0200 INFO System is ready for user queries.
+2024-10-30T12:21:47.023543+0200 INFO Processing query: hello there
+2024-10-30T12:21:48.384698+0200 INFO Query processed in 1.36 seconds
+2024-10-30T12:21:48.385697+0200 INFO Answer: Hello! How can I assist you today?
+2024-10-30T12:22:07.816691+0200 INFO Processing query: what is the best method for dynamicaly  moving objects?
+2024-10-30T12:22:09.281979+0200 INFO Query processed in 1.47 seconds
+2024-10-30T12:22:09.281979+0200 INFO Answer: For dynamically moving objects, the best method appears to be the approach that combines optical flow with gyroscope and Optical Image Stabilization (OIS) data to train an LSTM-FN network to infer virtual camera poses, as mentioned in [30]. This approach takes into account the complex movements and varying depths typically associated with dynamically moving objects, providing a more accurate and stable result.
+2024-10-30T12:22:23.413879+0200 INFO Processing query: what gpu did the author use?
+2024-10-30T12:22:24.437309+0200 INFO Query processed in 1.02 seconds
+2024-10-30T12:22:24.437309+0200 INFO Answer: The context does not provide information about the specific GPU used by the author.
+2024-10-30T12:22:42.967694+0200 INFO Processing query: What deep frame interpolation methods did the author use ?
+2024-10-30T12:22:44.318535+0200 INFO Query processed in 1.35 seconds
+2024-10-30T12:22:44.319494+0200 INFO Answer: The author used two deep frame interpolation methods: DIFRINT and CAIN. DIFRINT is comprised of the pretrained PWC-Net motion estimation network, followed by a U-Net frame interpolator and a ResNet refinement module. The author also implemented CAIN, which uses a novel architecture that incorporates the channel attention module and does not rely on optical flow estimation.
+2024-10-30T12:23:25.053982+0200 INFO Processing query: what video encoder did the author use for the third training stage for Deep Motion Blind Video Stabilization ?
+2024-10-30T12:23:26.196391+0200 INFO Query processed in 1.14 seconds
+2024-10-30T12:23:26.197391+0200 INFO Answer: For the third training stage of Deep Motion Blind Video Stabilization, the author incorporated a pretrained video action recognition network to enforce further stability.
+2024-10-30T12:23:40.786714+0200 INFO Processing query: What model did he opt to use ?
+2024-10-30T12:23:43.015824+0200 INFO Query processed in 2.23 seconds
+2024-10-30T12:23:43.015824+0200 INFO Answer: He opted to use a modified network architecture where the lower layers of pretrained successful CNNs such as ResNet-50 are kept fixed during training to leverage the knowledge gained from training on a big dataset like ImageNet. Only the top five convolutional blocks are left to be trained specifically for their application. Additionally, a UNet module and a ResNet module are trained separately as part of the overall framework.
+2024-10-30T12:24:14.163364+0200 INFO Processing query: I am refering to the models pretrained on kinetics 400
+2024-10-30T12:24:16.111422+0200 INFO Query processed in 1.95 seconds
+2024-10-30T12:24:16.112489+0200 INFO Answer: The models pretrained on Kinetics-400 dataset that are mentioned in the provided context include:
+
+1. R3D_18
+2. MC3_18
+3. R(2+1)D_18
+4. SLOW_R50
+
+These models were used to calculate embedding distances for steady and unsteady video sequences. Among them, the R(2+1)D_18 model was found to be the best at differentiating between steady and unsteady sequences, making it the best choice for the video encoder in the discussed study.
+2024-10-30T12:24:32.925205+0200 INFO Processing query: Which one did the autor use?
+2024-10-30T12:24:34.471969+0200 INFO Query processed in 1.55 seconds
+2024-10-30T12:24:34.471969+0200 INFO Answer: The author used a pretrained ResNet-50 network as the encoder module, which is finetuned during training. The input to the network consists of an incoming unsteady RGB frame and six grayscale historical steady frames sampled from the last second. The weights for the first convolutional layer of the ResNet-50 were adapted to handle the 9-channel input by computing pseudo-grayscale weights and concatenating these with the original RGB weights. Additionally, the pretrained weights of the ResNet-50 were not frozen but left trainable for fine-tuning.
+2024-10-30T12:31:45.831902+0200 INFO User terminated the session.
