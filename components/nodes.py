@@ -4,7 +4,7 @@ from components.state import GraphState
 from components.vector_store import retriever
 from langchain.schema import Document
 from langchain_community.tools.tavily_search import TavilySearchResults
-
+from loguru import logger
 from components.agents import (
     answer_grader,
     generation_agent,
@@ -18,7 +18,7 @@ web_search_tool = TavilySearchResults(k=3)
 def route_question_node(state: GraphState) -> str:
     """
     Routes a question to the appropriate data source based on the question's content.
-    This function prints debug information about the routing process and determines
+    This function logs debug information about the routing process and determines
     whether the question should be routed to a web search or a vector store for retrieval.
     Args:
         state (GraphState): The current state containing the question to be routed.
@@ -27,14 +27,15 @@ def route_question_node(state: GraphState) -> str:
              Possible values are "websearch" for web search and "retrieve" for vector store.
     """
 
-    print("---ROUTE QUESTION---")
     question = state["question"]
+    logger.info("Routing question: {}", question)
+
     source = question_router.invoke({"question": question})
     if source.datasource == "websearch":
-        print("---ROUTE QUESTION TO WEB SEARCH---")
+        logger.info("Routing question to web search.")
         return "websearch"
     elif source.datasource == "vectorstore":
-        print("---ROUTE QUESTION TO RAG---")
+        logger.info("Routing question to vector store (RAG).")
         return "retrieve"
 
 def retrieval_node(state: GraphState) -> Dict[str, Any]:
@@ -46,12 +47,13 @@ def retrieval_node(state: GraphState) -> Dict[str, Any]:
         Dict[str, Any]: A dictionary containing the retrieved documents and the original question.
     """
 
-    print("---RETRIEVE---")
     question = state["question"]
+    logger.info("Retrieving documents...")
 
     documents = retriever.invoke(question)
+    logger.info("Retrieved {} documents.", len(documents))
     return {"documents": documents, "question": question}
-    
+
 def web_search_node(state: GraphState) -> Dict[str, Any]:
     """
     Perform a web search based on the provided question and update the state with the search results.
@@ -61,34 +63,34 @@ def web_search_node(state: GraphState) -> Dict[str, Any]:
         Dict[str, Any]: The updated state with the web search results appended to the documents.
     """
 
-    print("---WEB SEARCH---")
     question = state["question"]
     documents = state["documents"]
+    logger.info("Performing web search for question: {}", question)
 
     docs = web_search_tool.invoke({"query": question})
     web_results = "\n".join([d["content"] for d in docs])
-    web_results = Document(page_content=web_results)
+    web_results_doc = Document(page_content=web_results)
     if documents is not None:
-        documents.append(web_results)
+        documents.append(web_results_doc)
     else:
-        documents = [web_results]
+        documents = [web_results_doc]
+    
+    logger.info("Appended web search results. Total documents: {}", len(documents))
     return {"documents": documents, "question": question}
 
 def grade_documents_node(state: GraphState) -> Dict[str, Any]:
     """
-    Determines whether the retrieved documents are relevant to the question
-    If any document is not relevant, we will set a flag to run web search
-
+    Determines whether the retrieved documents are relevant to the question.
+    If any document is not relevant, it sets a flag to trigger a web search.
     Args:
-        state (dict): The current graph state
-
+        state (GraphState): The current graph state.
     Returns:
-        state (dict): Filtered out irrelevant documents and updated web_search state
+        Dict[str, Any]: The updated state with relevant documents and a web search flag if necessary.
     """
 
-    print("---CHECK DOCUMENT RELEVANCE TO QUESTION---")
     question = state["question"]
     documents = state["documents"]
+    logger.info("Grading relevance of documents for question...")
 
     filtered_docs = []
     web_search = False
@@ -96,28 +98,28 @@ def grade_documents_node(state: GraphState) -> Dict[str, Any]:
         score = retrieval_grader.invoke(
             {"question": question, "document": d.page_content}
         )
-        grade = score.binary_score
-        if grade.lower() == "yes":
-            print("---GRADE: DOCUMENT RELEVANT---")
+        if score.binary_score.lower() == "yes":
+            logger.info("Document {} relevant to question.",d.metadata)
             filtered_docs.append(d)
         else:
-            print("---GRADE: DOCUMENT NOT RELEVANT---")
+            logger.info("Document {} not relevant to question; setting web search flag.",d.metadata)
             web_search = True
-            continue
+
+    logger.info("Filtered documents count: {}", len(filtered_docs))
     return {"documents": filtered_docs, "question": question, "web_search": web_search}
 
 def generation_node(state: GraphState) -> Dict[str, Any]:
     """
     Processes the given state to generate a response based on the provided question and documents.
     Args:
-        state (GraphState): A dictionary containing the current state with keys "question" and "documents".
+        state (GraphState): The current state with "question" and "documents".
     Returns:
         Dict[str, Any]: A dictionary containing the original "documents", "question", and the generated response.
     """
 
-    print("---GENERATE---")
     question = state["question"]
     documents = state["documents"]
+    logger.info("Generating response ...")
 
     generation = generation_agent.invoke({"context": documents, "question": question})
     return {"documents": documents, "question": question, "generation": generation}
@@ -125,42 +127,31 @@ def generation_node(state: GraphState) -> Dict[str, Any]:
 def grade_answer_node(state: GraphState) -> str:
     """
     Grades the generated answer based on its relevance to the provided documents and question.
-    This function performs the following steps:
-    1. Checks if the generated answer is grounded in the provided documents.
-    2. If grounded, it further checks if the generated answer addresses the provided question.
-    3. Returns a grade based on the results of these checks.
     Args:
-        state (GraphState): A dictionary-like object containing the following keys:
-            - "question": The question to be addressed by the generated answer.
-            - "documents": The documents that the generated answer should be grounded in.
-            - "generation": The generated answer to be graded.
+        state (GraphState): A dictionary-like object with "question", "documents", and "generation".
     Returns:
-        str: The grade of the generated answer, which can be one of the following:
-            - "useful": If the generated answer is grounded in the documents and addresses the question.
-            - "not useful": If the generated answer is grounded in the documents but does not address the question.
-            - "not supported": If the generated answer is not grounded in the documents.
+        str: The grade of the generated answer: "useful", "not useful", or "not supported".
     """
 
-    print("---CHECK HALLUCINATIONS---")
     question = state["question"]
     documents = state["documents"]
     generation = state["generation"]
+    logger.info("Grading generated answer ...")
 
-    score = hallucination_grader.invoke(
+    hallucination_score = hallucination_grader.invoke(
         {"documents": documents, "generation": generation}
     )
 
-    if score.binary_score is not None:
-        print("---DECISION: GENERATION IS GROUNDED IN DOCUMENTS---")
-        print("---GRADE GENERATION vs QUESTION---")
-        score = answer_grader.invoke({"question": question, "generation": generation})
-        if score.binary_score is not None:
-            print("---DECISION: GENERATION ADDRESSES QUESTION---")
+    if hallucination_score.binary_score is not None:
+        logger.info("Answer grounded in documents. Checking relevance to question.")
+        answer_score = answer_grader.invoke({"question": question, "generation": generation})
+        
+        if answer_score.binary_score is not None:
+            logger.info("Generated answer is useful and addresses the question.")
             return "useful"
         else:
-            print("---DECISION: GENERATION DOES NOT ADDRESS QUESTION---")
+            logger.info("Generated answer does not fully address the question.")
             return "not useful"
     else:
-        print("---DECISION: GENERATION IS NOT GROUNDED IN DOCUMENTS, RE-TRY---")
+        logger.warning("Generated answer is not grounded in documents. Re-evaluation needed.")
         return "not supported"
-    
