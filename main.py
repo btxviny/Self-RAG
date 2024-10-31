@@ -1,7 +1,7 @@
 import os
 import time
 from dotenv import load_dotenv
-from langchain_openai import AzureChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
 import chromadb
 from chromadb.utils import embedding_functions
@@ -20,12 +20,9 @@ logger.add("retrieval_qa.log", format="{time} {level} {message}", level="INFO")
 def setup_llm():
     """Initializes the LLM model."""
     logger.info("Setting up Azure LLM model...")
-    llm = AzureChatOpenAI(
-        azure_endpoint=os.environ['API_BASE'],
-        openai_api_version=os.environ['API_VERSION'],
-        openai_api_key=os.environ['API_KEY'],
-        deployment_name=os.environ['GPT_DEPLOYMENT_NAME'],
-        openai_api_type="azure"
+    llm = ChatOpenAI(
+        api_key = os.environ['OPENAI_API_KEY'],
+        model ='gpt-4o-mini'
     )
     return llm
 

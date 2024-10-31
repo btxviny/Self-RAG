@@ -3,7 +3,7 @@ langchainhub
 langchain_unstructured
 langchain-community
 langchain-huggingface
-langchain-openai
+langchain-openai==0.2.0
 langchain-ollama
 langchain_chroma
 chromadb 
@@ -12,7 +12,7 @@ sentence-transformers
 ipykernel
 python-dotenv
 pypdf
-openai 
+openai==1.52.0 
 unstructured
 libmagic
 loguru
