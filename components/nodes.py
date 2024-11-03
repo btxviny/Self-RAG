@@ -63,8 +63,8 @@ def web_search_node(state: GraphState) -> Dict[str, Any]:
         Dict[str, Any]: The updated state with the web search results appended to the documents.
     """
 
-    question = state["question"]
-    documents = state["documents"]
+    question = state.get("question")
+    documents = state.get("documents")
     logger.info("Performing web search for question: {}", question)
 
     docs = web_search_tool.invoke({"query": question})
@@ -88,8 +88,8 @@ def grade_documents_node(state: GraphState) -> Dict[str, Any]:
         Dict[str, Any]: The updated state with relevant documents and a web search flag if necessary.
     """
 
-    question = state["question"]
-    documents = state["documents"]
+    question = state.get("question")
+    documents = state.get("documents")
     logger.info("Grading relevance of documents for question...")
 
     filtered_docs = []
@@ -102,7 +102,7 @@ def grade_documents_node(state: GraphState) -> Dict[str, Any]:
             logger.info("Document {} relevant to question.",d.metadata)
             filtered_docs.append(d)
         else:
-            logger.info("Document {} not relevant to question; setting web search flag.",d.metadata)
+            logger.info("Document {} not relevant to question;",d.metadata)
             web_search = True
 
     logger.info("Filtered documents count: {}", len(filtered_docs))
@@ -117,8 +117,8 @@ def generation_node(state: GraphState) -> Dict[str, Any]:
         Dict[str, Any]: A dictionary containing the original "documents", "question", and the generated response.
     """
 
-    question = state["question"]
-    documents = state["documents"]
+    question = state.get("question")
+    documents = state.get("documents")
     logger.info("Generating response ...")
 
     generation = generation_agent.invoke({"context": documents, "question": question})
@@ -133,9 +133,9 @@ def grade_answer_node(state: GraphState) -> str:
         str: The grade of the generated answer: "useful", "not useful", or "not supported".
     """
 
-    question = state["question"]
-    documents = state["documents"]
-    generation = state["generation"]
+    question = state.get("question")
+    documents = state.get("documents")
+    generation = state.get("generation")
     logger.info("Grading generated answer ...")
 
     hallucination_score = hallucination_grader.invoke(

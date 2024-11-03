@@ -18,8 +18,6 @@ load_dotenv()
 
 
 def decide_to_generate(state):
-    print("---ASSESS GRADED DOCUMENTS---")
-
     if state["web_search"]:
         logger.info("DECISION: Not all documents are relevant to the question, proceed with web search.")
         return "websearch"
@@ -36,13 +34,14 @@ workflow.add_node("generate", generation_node)
 workflow.add_node("websearch", web_search_node)
 
 
-workflow.set_conditional_entry_point(
+'''workflow.set_conditional_entry_point(
     route_question_node,
     {
         "websearch": "websearch",
         "retrieve": "retrieve",
     },
-)
+)'''
+workflow.set_entry_point("retrieve")
 workflow.add_edge("retrieve", "grade_documents")
 workflow.add_conditional_edges(
     "grade_documents",
