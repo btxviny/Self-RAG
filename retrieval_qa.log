@@ -20,3 +20,23 @@
 2024-10-31T18:15:02.944691+0200 INFO Processing query: hello
 2024-10-31T18:15:03.736337+0200 INFO Query processed in 0.79 seconds
 2024-10-31T18:15:03.736337+0200 INFO Answer: Hello! How can I assist you today?
+2024-11-02T19:25:37.060226+0200 INFO Setting up Azure LLM model...
+2024-11-02T19:25:37.088226+0200 INFO Setting up vector store...
+2024-11-02T19:25:43.921362+0200 INFO Setting up retrieval chain...
+2024-11-02T19:25:44.524050+0200 INFO System is ready for user queries.
+2024-11-02T19:26:00.334838+0200 INFO Processing query: What is the future of deep learning video stabilization ?
+2024-11-02T19:26:03.696941+0200 INFO Query processed in 3.36 seconds
+2024-11-02T19:26:03.697925+0200 INFO Answer: The future of deep learning video stabilization is focused on several key directions:
+
+1. **Refinement of Network Architectures**: There is an emphasis on improving network architectures for better extraction of inter-frame motion features, which can enhance the stabilization process.
+
+2. **Fusion of Methods**: Researchers are looking into combining conventional and learning-based methods to improve the effectiveness of video stabilization techniques.
+
+3. **Dataset Availability**: A significant challenge is the lack of datasets dedicated to perceptive Video Stabilization Quality Assessment (VSQA). Addressing this issue is crucial for advancing deep learning methods in video stabilization.
+
+4. **Perceptual Metrics**: Current deep learning methods often lack metrics that reflect the perceptive aspects of video stabilization. Future research may focus on incorporating user reviews and feedback into the evaluation process.
+
+5. **Reinforcement Learning Techniques**: Utilizing reinforcement learning for subjective evaluation, rather than relying solely on geometric criteria, could lead to more perceptually accurate and efficient video stabilization solutions.
+
+Overall, the field is expected to evolve by integrating perceptual approaches for visual information and addressing existing challenges, thereby enhancing the efficacy and efficiency of deep learning video stabilization techniques.
+2024-11-02T19:26:14.879226+0200 INFO User terminated the session.
